@@ -9,6 +9,8 @@ print('Importing dataset from ./data/...')
 df = pd.read_csv(r'./data/spam_ham_dataset.csv')
 # Removing Unnecessary column
 df.drop({'Unnamed: 0'}, axis=1, inplace = True)
+# Drop duplicates
+df.drop_duplicates(subset="text", inplace=True)
 
 # Downsampling ham to balance the dataset
 ham = df[df['label'] == 'ham']
